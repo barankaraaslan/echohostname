@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echohostname
+spec:
+  selector:
+    matchLabels:
+      app: echohostname
+  template:
+    metadata:
+      labels:
+        app: echohostname
+    spec:
+      containers:
+        - name: echohostname
+          image: echohostname
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
+          ports:
+            - containerPort: 8000
