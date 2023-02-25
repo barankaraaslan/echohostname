@@ -17,7 +17,7 @@ You can see the service running at `http://localhost:12346`
 
 You can run `./tmp/bin/linkerd viz dashboard` to see networking in the cluster.
 
-In case of something does not work with linkerd, please use `./deploy-scripts/deploy-local-wo-linkerd`. It deploys creates a kind cluster and deploys the service but without linkerd
+In case of something does not work with linkerd, please use `./deploy-scripts/deploy-local-wo-linkerd`. It creates the kind cluster and deploys the service but without linkerd
 
 - ## To deploy to an already existing cluster
 
