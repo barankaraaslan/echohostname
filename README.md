@@ -21,8 +21,8 @@ In case of something does not work with linkerd, please use `./deploy-scripts/de
 
 - ## To deploy to an already existing cluster
 
-k8s manifests provided uses nginx ingress, so the cluster must have nginx ingress controller installed. It can be deployed with `kubectl apply -k k8s/local`. There is an already built image of the service on dockerhub, so the image is not needed to be moved to the cluster.
+k8s manifests provided uses nginx ingress, so the cluster must have nginx ingress controller installed. It can be deployed with `kubectl apply -k k8s/local`. There is an already built image of the service on dockerhub, so the image is not needed to be loaded to the cluster.
 
 - ## To deploy to `GCP`:
 
-There is also ingress support for GCP, you can deploy to GCP with manifests in `k8s/gcp` directory by running `kubectl apply -k k8s/gcp`. There is an already deployed one at `http://34.160.232.16`, there is an github action that deploys the service to gcp
+There is also ingress support for GCP, you can deploy to GCP with manifests in `k8s/gcp` directory by running `kubectl apply -k k8s/gcp`. You can find an already deployed one at `http://34.160.232.16`. A github action automates the deployment
