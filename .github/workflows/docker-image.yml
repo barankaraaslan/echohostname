@@ -1,26 +1,25 @@
 name: Docker Image CI
 
 on:
+  workflow_dispatch:
   push:
-    branches: [ "main" ]
-    paths: 
-    - "image/"
-    - ".github/workflosw/docker-image.yml"
+    branches: ["main"]
+    paths:
+      - "image/"
+      - ".github/workflosw/docker-image.yml"
   pull_request:
-    branches: [ "main" ]
-    paths: 
-    - "image/"
-    - ".github/workflosw/docker-image.yml"
+    branches: ["main"]
+    paths:
+      - "image/"
+      - ".github/workflosw/docker-image.yml"
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: |
-        docker build -t barankaraaslan/echohostname image/
-        echo -n ${{ secret.DOCKERHUB_TOKEN }} | docker login -u barankaraaslan --password-stdin
-        docker push barankaraaslan/echohostname
+      - uses: actions/checkout@v3
+      - name: Build the Docker image
+        run: |
+          docker build -t barankaraaslan/echohostname image/
+          echo -n ${{ secret.DOCKERHUB_TOKEN }} | docker login -u barankaraaslan --password-stdin
+          docker push barankaraaslan/echohostname
