@@ -38,8 +38,8 @@ kubectl --context kind-echohostname apply -f https://raw.githubusercontent.com/k
 kubectl --context kind-echohostname wait --namespace ingress-nginx --selector=app.kubernetes.io/component=controller --timeout=90s --for=condition=ready pod
 
 # build and load service image
-docker build -t echohostname image/
-kind load docker-image echohostname --name echohostname
+docker build -t barankaraaslan/echohostname image/
+kind load docker-image barankaraaslan/echohostname --name echohostname
 
 #  install linkerd for its monitoring side effect
 linkerd check || install_linkerd
@@ -53,3 +53,5 @@ kubectl --context kind-echohostname -n ingress-nginx get deploy ingress-nginx-co
 
 echo 'You can query the service from http://localhost:12346. It uses port 12346 to reduce the possibilty of ports clashing with existing proccesses on the system'
 echo 'Also, you can run \`./tmp/bin/linkerd viz dashboard\` to monitor the cluster and the service'
+
+echo 'SUCCESS'
