@@ -49,6 +49,7 @@ kubectl --context kind-echohostname apply -k k8s/
 
 # inject linkerd to resources
 kubectl --context kind-echohostname get deploy -o yaml | linkerd inject - | kubectl --context kind-echohostname apply  -f - 
+kubectl --context kind-echohostname -n ingress-nginx get deploy ingress-nginx-controller -o yaml | linkerd inject - | kubectl --context kind-echohostname apply  -f - 
 
 echo 'You can query the service from http://localhost:12346. It uses port 12346 to reduce the possibilty of ports clashing with existing proccesses on the system'
 echo 'Also, you can run \`./tmp/bin/linkerd viz dashboard\` to monitor the cluster and the service'
