@@ -45,7 +45,7 @@ kind load docker-image echohostname --name echohostname
 linkerd check || install_linkerd
 
 # deploy service
-kubectl --context kind-echohostname apply -k k8s/
+kubectl --context kind-echohostname apply -k k8s/local
 
 # inject linkerd to resources
 kubectl --context kind-echohostname get deploy -o yaml | linkerd inject - | kubectl --context kind-echohostname apply  -f - 

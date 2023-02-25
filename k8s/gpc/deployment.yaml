@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echohostname
+spec:
+  selector:
+    matchLabels:
+      app: echohostname
+  template:
+    spec:
+      containers:
+        - name: echohostname
+          image: barankaraaslan/echohostname
+          imagePullPolicy: Always
