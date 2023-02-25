@@ -20,6 +20,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Build the Docker image
         run: |
-          docker build -t barankaraaslan/echohostname image/
-          echo -n ${{ secret.DOCKERHUB_TOKEN }} | docker login -u barankaraaslan --password-stdin
+          docker build -t barankaraaslan/echohostname image/ ;\
+          echo -n ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u barankaraaslan --password-stdin ;\
           docker push barankaraaslan/echohostname
